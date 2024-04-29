@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/food.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Recipe Finder</title>
+</head>
+
+<body>
+    <header>
+        <div class="logo">Recipe Finder</div>
+        <nav>
+            <ul class="menu" id="menuList">
+                <li><a href="{% url 'recipes' %}">Recipes</a></li>
+                <li><a href="{% url 'nonveg-recipes' %}" class="active">Non-Veg Recipes</a></li>
+                <li><a href="{% url 'home' %}">Log-Out</a></li>
+            </ul>
+            <div class="toggle_btn">
+                <i class="fa fa-bars"></i>
+            </div>
+            <div class="dropdown_menu">
+                <li><a href="{% url 'recipes' %}">Recipes</a></li>
+                <li><a href="{% url 'nonveg-recipes' %}" class="active">Non-Veg Recipes</a></li>
+                <li><a href="{% url 'home' %}">Log-Out</a></li>
+            </div>
+        </nav>
+    </header>
+
+    <script>
+        const toggleBtn = document.querySelector('.toggle_btn');
+        const toggleBtnIcon = document.querySelector('.toggle_btn i');
+        const dropDownMenu = document.querySelector('.dropdown_menu');
+
+        toggleBtn.onclick = function () {
+            dropDownMenu.classList.toggle('open');
+            const isOpen = dropDownMenu.classList.contains('open');
+            toggleBtnIcon.classList = isOpen ? 'fa fa-xmark' : 'fa fa-bars';
+        };
+    </script>
+
+    <div class="recipe">
+        <div class="recipe-img">
+            <img src="{% static 'images/chilliprawns.jpg' %}">
+        </div>
+        <div class="recipe-information">
+            <h1>Chilli Prawns</h1>
+            <p class="description">Chilli Prawns are a spicy and savory dish featuring prawns cooked in a tangy chili
+                sauce. This popular Asian-inspired recipe combines the rich flavors of garlic, ginger, and soy sauce
+                with a hint of sweetness.</p>
+
+
+            <div class="recipe-step-1">
+                <h2>Ingredients</h2>
+                <ul class="ingredients">
+                    <li>250g prawns, cleaned and deveined</li>
+                    <li>2 tablespoons oil</li>
+                    <li>1 onion, thinly sliced</li>
+                    <li>1 bell pepper (capsicum), thinly sliced</li>
+                    <li>2 green chilies, slit lengthwise</li>
+                    <li>1 tablespoon ginger-garlic paste</li>
+                    <li>2 tablespoons soy sauce</li>
+                    <li>1 tablespoon chili sauce</li>
+                    <li>1 teaspoon vinegar</li>
+                    <li>1 teaspoon sugar</li>
+                    <li>Salt to taste</li>
+                    <li>Chopped spring onions for garnish</li>
+                </ul>
+            </div>
+
+            <hr>
+
+            <div class="recipe-step-2">
+                <h2>Instructions</h2>
+                <div class="instructions">
+                    <div class="item">
+
+                        <div class="num">1.</div>
+                        <p>Heat oil in a pan over medium-high heat.</p>
+                    </div>
+
+                    <div class="item">
+
+                        <div class="num">2.</div>
+                        <p>Add sliced onion, bell pepper, and green chilies. Sauté for 2-3 minutes until they are
+                            slightly tender.</p>
+                    </div>
+
+                    <div class="item">
+
+                        <div class="num">3.</div>
+                        <p>Add ginger-garlic paste and sauté for another minute until fragrant.</p>
+                    </div>
+
+                    <div class="item">
+                        <div class="num">4.</div>
+                        <p>Add cleaned prawns to the pan and stir-fry until they turn pink and opaque.</p>
+                    </div>
+
+                    <div class="item">
+                        <div class="num">5.</div>
+                        <p>In a small bowl, mix soy sauce, chili sauce, vinegar, sugar, and salt. Pour this sauce over
+                            the prawns and vegetables.</p>
+                    </div>
+
+                    <div class="item">
+                        <div class="num">6.</div>
+                        <p>Stir well to coat the prawns and vegetables with the sauce. Cook for another 2-3 minutes
+                            until everything is heated through and well combined.</p>
+                    </div>
+
+                    <div class="item">
+                        <div class="num">7.</div>
+                        <p>Garnish with chopped spring onions.</p>
+                    </div>
+
+                    <div class="item">
+                        <div class="num">8.</div>
+                        <p>Serve hot as an appetizer or as a side dish with steamed rice or noodles. Enjoy your
+                            delicious chilli prawns!</p>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="feature">
+                <p>Want to feature your own recipe? <a href="https://forms.gle/3e3RaBDGumVrKVc56" target=”_blank”>Send us your recipe now!</a></p>
+            </div>
+        </div>
+    </div>
+    <a class="gotopbtn" href="#"> <i class="fas fa-arrow-up"></i></a>
+    <footer>
+        &copy; Recipe Finder. Designed by Katakam Koushik.
+    </footer>
+
+</body>
+
+</html>

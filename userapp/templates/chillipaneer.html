@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/food.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Recipe Finder</title>
+</head>
+
+<body>
+    <header>
+        <div class="logo">Recipe Finder</div>
+        <nav>
+            <ul class="menu" id="menuList">
+                <li><a href="{% url 'recipes' %}">Recipes</a></li>
+                <li><a href="{% url 'veg-recipes' %}" class="active">Veg Recipes</a></li>
+                <li><a href="{% url 'home' %}">Log-Out</a></li>
+            </ul>
+            <div class="toggle_btn">
+                <i class="fa fa-bars"></i>
+            </div>
+            <div class="dropdown_menu">
+                <li><a href="{% url 'recipes' %}">Recipes</a></li>
+                <li><a href="{% url 'veg-recipes' %}" class="active">Veg Recipes</a></li>
+                <li><a href="{% url 'home' %}">Log-Out</a></li>
+            </div>
+        </nav>
+    </header>
+
+    <script>
+        const toggleBtn = document.querySelector('.toggle_btn');
+        const toggleBtnIcon = document.querySelector('.toggle_btn i');
+        const dropDownMenu = document.querySelector('.dropdown_menu');
+
+        toggleBtn.onclick = function () {
+            dropDownMenu.classList.toggle('open');
+            const isOpen = dropDownMenu.classList.contains('open');
+            toggleBtnIcon.classList = isOpen ? 'fa fa-xmark' : 'fa fa-bars';
+        };
+    </script>
+
+    <div class="recipe">
+        <div class="recipe-img">
+            <img src="{% static 'images/chillipaneer.jpg' %}">
+        </div>
+        <div class="recipe-information">
+            <h1>Chilli Paneer</h1>
+            <p class="description">Chilli Paneer is a popular Indo-Chinese dish that features cubes of paneer (Indian
+                cottage cheese) cooked in a spicy and tangy chili sauce. This vegetarian dish is a favorite at Indian
+                restaurants and is known for its bold flavors and crispy texture.</p>
+
+
+            <div class="recipe-step-1">
+                <h2>Ingredients</h2>
+                <ul class="ingredients">
+                    <li>250g paneer (cottage cheese), cubed</li>
+                    <li>1 onion, diced</li>
+                    <li>1 capsicum (bell pepper), diced</li>
+                    <li>2 tablespoons soy sauce</li>
+                    <li>1 tablespoon chilli sauce</li>
+                    <li>1 tablespoon tomato ketchup</li>
+                    <li>1 teaspoon vinegar</li>
+                    <li>1 teaspoon cornflour</li>
+                    <li>1/2 teaspoon ginger-garlic paste</li>
+                    <li>Salt to taste</li>
+                    <li>Oil for frying</li>
+                    <li>Spring onions for garnish (optional)</li>
+                </ul>
+            </div>
+
+            <hr>
+
+            <div class="recipe-step-2">
+                <h2>Instructions</h2>
+                <div class="instructions">
+                    <div class="item">
+                        <div class="num">1.</div>
+                        <p>In a bowl, mix soy sauce, chili sauce, tomato ketchup, vinegar, cornflour, ginger-garlic
+                            paste, and salt to make a marinade.</p>
+                    </div>
+                    <div class="item">
+                        <div class="num">2.</div>
+                        <p>Marinate paneer cubes in the mixture for 15-20 minutes.</p>
+                    </div>
+                    <div class="item">
+                        <div class="num">3.</div>
+                        <p>Heat oil in a pan, add marinated paneer cubes, and fry until golden brown. Remove and set
+                            aside.</p>
+                    </div>
+                    <div class="item">
+                        <div class="num">4.</div>
+                        <p>In the same pan, add a little more oil if needed. Add diced onion, capsicum, and green
+                            chilies. Stir-fry for 2-3 minutes.</p>
+                    </div>
+                    <div class="item">
+                        <div class="num">5.</div>
+                        <p>Add the fried paneer cubes to the pan and toss everything together.</p>
+                    </div>
+                    <div class="item">
+                        <div class="num">6.</div>
+                        <p>Cook for another 2-3 minutes until the vegetables are slightly tender.</p>
+                    </div>
+                    <div class="item">
+                        <div class="num">7.</div>
+                        <p>Garnish with chopped spring onions if desired.</p>
+                    </div>
+                    <div class="item">
+                        <div class="num">8.</div>
+                        <p>Serve hot with fried rice or noodles. Enjoy your flavorful chilli paneer!</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="feature">
+                <p>Want to feature your own recipe? <a href="https://forms.gle/3e3RaBDGumVrKVc56" target=”_blank”>Send us your recipe now!</a></p>
+            </div>
+        </div>
+    </div>
+    <a class="gotopbtn" href="#"> <i class="fas fa-arrow-up"></i></a>
+    <footer>
+        &copy; Recipe Finder. Designed by Katakam Koushik.
+    </footer>
+
+</body>
+
+</html>

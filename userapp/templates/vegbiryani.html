@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/food.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Recipe Finder</title>
+</head>
+
+<body>
+    <header>
+        <div class="logo">Recipe Finder</div>
+        <nav>
+            <ul class="menu" id="menuList">
+                <li><a href="{% url 'recipes' %}">Recipes</a></li>
+                <li><a href="{% url 'veg-recipes' %}" class="active">Veg Recipes</a></li>
+                <li><a href="{% url 'home' %}">Log-Out</a></li>
+            </ul>
+            <div class="toggle_btn">
+                <i class="fa fa-bars"></i>
+            </div>
+            <div class="dropdown_menu">
+                <li><a href="{% url 'recipes' %}">Recipes</a></li>
+                <li><a href="{% url 'veg-recipes' %}" class="active">Veg Recipes</a></li>
+                <li><a href="{% url 'home' %}">Log-Out</a></li>
+            </div>
+        </nav>
+    </header>
+
+    <script>
+        const toggleBtn = document.querySelector('.toggle_btn');
+        const toggleBtnIcon = document.querySelector('.toggle_btn i');
+        const dropDownMenu = document.querySelector('.dropdown_menu');
+
+        toggleBtn.onclick = function () {
+            dropDownMenu.classList.toggle('open');
+            const isOpen = dropDownMenu.classList.contains('open');
+            toggleBtnIcon.classList = isOpen ? 'fa fa-xmark' : 'fa fa-bars';
+        };
+    </script>
+
+    <div class="recipe">
+        <div class="recipe-img">
+            <img src="{% static 'images/vegbiryani.jpg' %}">
+        </div>
+        <div class="recipe-information">
+            <h1>Veg Biryani</h1>
+            <p class="description">Veg Biryani is a flavorful and aromatic dish made with a variety of vegetables and
+                basmati rice, infused with fragrant spices like saffron, cardamom, and cloves. Often cooked in layers
+                with a mix of vegetables, rice, and herbs.</p>
+
+            <div class="recipe-step-1">
+                <h2>Ingredients</h2>
+                <ul class="ingredients">
+                    <li>1 onion, thinly sliced</li>
+                    <li>1 tomato, chopped</li>
+                    <li>1 cup mixed vegetables (carrots, peas, beans, cauliflower, etc.)</li>
+                    <li>2 tablespoons oil or ghee</li>
+                    <li>1 tablespoon ginger-garlic paste</li>
+                    <li>1 bay leaf</li>
+                    <li>2-3 green cardamom pods</li>
+                    <li>2-3 cloves</li>
+                    <li>1-inch cinnamon stick</li>
+                    <li>1 teaspoon cumin seeds</li>
+                    <li>1 teaspoon biryani masala</li>
+                    <li>Coriander leaves for garnish</li>
+                    <li>1/2 teaspoon turmeric powder</li>
+                    <li>1/2 teaspoon red chili powder (adjust to taste)</li>
+                    <li>Salt to taste</li>
+                    <li>2 cups water</li>
+                    <li>Fresh coriander leaves and fried onions for garnish (optional)</li>
+                </ul>
+            </div>
+
+            <hr>
+
+            <div class="recipe-step-2">
+                <h2>Instructions</h2>
+                <div class="instructions">
+                    <div class="item">
+                        <div class="num">1.</div>
+                        <p>Heat oil or ghee in a pressure cooker or heavy-bottomed pot.</p>
+                    </div>
+                    <div class="item">
+                        <div class="num">2.</div>
+                        <p>Add sliced onions and sauté until golden brown.</p>
+                    </div>
+                    <div class="item">
+                        <div class="num">3.</div>
+                        <p>Add ginger-garlic paste and sauté for a minute until the raw smell disappears.</p>
+                    </div>
+                    <div class="item">
+                        <div class="num">4.</div>
+                        <p>Add chopped tomatoes and cook until they turn soft and mushy.</p>
+                    </div>
+                    <div class="item">
+                        <div class="num">5.</div>
+                        <p>Add mixed vegetables, biryani masala, turmeric powder, red chili powder, and salt. Mix well
+                            and cook for 2-3 minutes.</p>
+                    </div>
+                    <div class="item">
+                        <div class="num">6.</div>
+                        <p>Drain the soaked rice and add it to the pot. Stir gently to coat the rice with the masala.
+                        </p>
+                    </div>
+                    <div class="item">
+                        <div class="num">7.</div>
+                        <p>Add water and mix well. Bring to a boil.</p>
+                    </div>
+                    <div class="item">
+                        <div class="num">8.</div>
+                        <p>Close the lid of the pressure cooker or pot and cook on medium heat for one whistle (if using
+                            a pressure cooker) or until the rice is cooked and water is absorbed.</p>
+                    </div>
+                    <div class="item">
+                        <div class="num">9.</div>
+                        <p>Once done, let the pressure release naturally before opening the lid.</p>
+                    </div>
+                    <div class="item">
+                        <div class="num">10.</div>
+                        <p>Fluff the biryani gently with a fork.</p>
+                    </div>
+                    <div class="item">
+                        <div class="num">11.</div>
+                        <p>Garnish with fresh coriander leaves and fried onions if desired.</p>
+                    </div>
+                    <div class="item">
+                        <div class="num">12.</div>
+                        <p>Serve hot with raita or salad. Enjoy your flavorful veg biryani!</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="feature">
+                <p>Want to feature your own recipe? <a href="https://forms.gle/3e3RaBDGumVrKVc56" target=”_blank”>Send us your recipe now!</a></p>
+            </div>
+        </div>
+    </div>
+    <a class="gotopbtn" href="#"> <i class="fas fa-arrow-up"></i></a>
+    <footer>
+        &copy; Recipe Finder. Designed by Katakam Koushik.
+    </footer>
+
+</body>
+
+</html>

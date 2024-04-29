@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=7">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/vegnonveg.css' %}" />
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,400;1,200;1,300;1,600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Recipe Finder</title>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            Recipe Finder
+        </div>
+        <nav>
+            <ul class="menu" id="menuList">
+                <li><a href="{% url 'recipes' %}" class="active">Recipes</a></li>
+                <li><a href="{% url 'home' %}">Log-Out</a></li>
+            </ul>
+            <div class="toggle_btn">
+                <i class="fa fa-bars"></i>
+            </div>
+            <div class="dropdown_menu">
+                <li><a href="{% url 'recipes' %}" class="active">Recipes</a></li>
+                <li><a href="{% url 'home' %}">Log-Out</a></li>
+            </div>
+        </nav>
+    </header>
+    <script>
+
+        const toggleBtn = document.querySelector('.toggle_btn')
+        const toggleBtnIcon = document.querySelector('.toggle_btn i')
+        const dropDownMenu = document.querySelector('.dropdown_menu')
+
+        toggleBtn.onclick = function () {
+            dropDownMenu.classList.toggle('open')
+            const isOpen = dropDownMenu.classList.contains('open')
+
+            toggleBtnIcon.classList = isOpen
+                ? 'fa fa-xmark'
+                : 'fa fa-bars'
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const readMoreBtnMain = document.querySelector('.read-more-btn-1');
+            const mainCourseSection = document.querySelector('.maincourse');
+            const readMoreBtnSnacks = document.querySelector('.read-more-btn');
+            const snacksSection = document.querySelector('.snacks');
+            const readMoreBtnDesserts = document.querySelector('.read-more-btn-2');
+            const dessertsSection = document.querySelector('.desserts');
+
+            readMoreBtnMain.addEventListener('click', function () {
+                if (mainCourseSection.style.display === 'none' || mainCourseSection.style.display === '') {
+                    mainCourseSection.style.display = 'flex';
+                    readMoreBtnMain.textContent = 'Hide';
+                    // Hide snacks and desserts sections and their "Read More" buttons
+                    snacksSection.style.display = 'none';
+                    readMoreBtnSnacks.textContent = 'Read More';
+                    dessertsSection.style.display = 'none';
+                    readMoreBtnDesserts.textContent = 'Read More';
+                } else {
+                    mainCourseSection.style.display = 'none';
+                    readMoreBtnMain.textContent = 'Read More';
+                }
+            });
+
+            readMoreBtnSnacks.addEventListener('click', function () {
+                if (snacksSection.style.display === 'none' || snacksSection.style.display === '') {
+                    snacksSection.style.display = 'flex';
+                    readMoreBtnSnacks.textContent = 'Hide';
+                    // Hide main course and desserts sections and their "Read More" buttons
+                    mainCourseSection.style.display = 'none';
+                    readMoreBtnMain.textContent = 'Read More';
+                    dessertsSection.style.display = 'none';
+                    readMoreBtnDesserts.textContent = 'Read More';
+                } else {
+                    snacksSection.style.display = 'none';
+                    readMoreBtnSnacks.textContent = 'Read More';
+                }
+            });
+
+            readMoreBtnDesserts.addEventListener('click', function () {
+                if (dessertsSection.style.display === 'none' || dessertsSection.style.display === '') {
+                    dessertsSection.style.display = 'flex';
+                    readMoreBtnDesserts.textContent = 'Hide';
+                    // Hide main course and snacks sections and their "Read More" buttons
+                    mainCourseSection.style.display = 'none';
+                    readMoreBtnMain.textContent = 'Read More';
+                    snacksSection.style.display = 'none';
+                    readMoreBtnSnacks.textContent = 'Read More';
+                } else {
+                    dessertsSection.style.display = 'none';
+                    readMoreBtnDesserts.textContent = 'Read More';
+                }
+            });
+            //This line ensures that when the page loads, the main course, snacks and desserts sections are initially hidden from view.
+            mainCourseSection.style.display = 'none';
+            snacksSection.style.display = 'none';
+            dessertsSection.style.display = 'none';
+        });
+
+
+    </script>
+    <div class="recipes">
+        <div class="container">
+            <div class="card">
+                <div class="imgBx">
+                    <img src="{% static 'images/nonsnacks.jpg' %}">
+                </div>
+                <div class="content">
+                    <h2> Snacks </h2>
+                    <p> From chilli chicken to grill chicken, non-veg snacks offer a variety of flavors and textures to
+                        tantalize your taste buds. </p>
+                    <a href="#snacks-cards" class="read-more-btn">Read More</a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="imgBx">
+                    <img src="{% static 'images/nonmaincourse.jpg' %}">
+                </div>
+                <div class="content">
+                    <h2> MainCourse </h2>
+                    <p> Dive into hearty and satisfying non-veg main courses, from hyderabadi biryani to butter chicken,
+                        try
+                        all our delicious recipes. </p>
+                    <a href="#maincourse-cards" class="read-more-btn-1">Read More</a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="imgBx">
+                    <img src="{% static 'images/desserts.jpg' %}">
+                </div>
+                <div class="content">
+                    <h2> Dessert </h2>
+                    <p> Indulge your sweet tooth with delectable desserts, from fruity delights to rich chocolates,
+                        these offer a delightful conclusion to any meal. </p>
+                    <a href="#desserts-cards" class="read-more-btn-2">Read More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="snacks" style="display: none;" id="snacks-cards">
+
+        <div class="recipe-card">
+            <h2 class="recipe-title">Chicken Spring Rolls</h2>
+            <img class="recipe-image" src="{% static 'images/chickenspringroll.jpg' %}">
+            <p class="recipe-description">Crispy spring rolls filled with chicken and vegetables, perfect as an
+                appetizer.</p>
+            <a class="recipe-link" href="{% url 'chickenspringrolls' %}">View Recipe</a>
+        </div>
+
+        <div class="recipe-card">
+            <h2 class="recipe-title">Mutton Keema Samosas</h2>
+            <img class="recipe-image" src="{% static 'images/muttonkeemasamosa.jpg' %}">
+            <p class="recipe-description">Delicious samosas filled with spicy mutton keema, ideal for snacks.</p>
+            <a class="recipe-link" href="{% url 'muttonkeemasamosa' %}">View Recipe</a>
+        </div>
+
+        <div class="recipe-card">
+            <h2 class="recipe-title">Chilli Prawns</h2>
+            <img class="recipe-image" src="{% static 'images/chilliprawns.jpg' %}">
+            <p class="recipe-description">Prawns cooked in a spicy chilli sauce, a perfect combination of heat and
+                flavor.</p>
+            <a class="recipe-link" href="{% url 'chilliprawns' %}">View Recipe</a>
+        </div>
+
+        <div class="recipe-card">
+            <h2 class="recipe-title">Chilli Chicken</h2>
+            <img class="recipe-image" src="{% static 'images/chillichicken.jpg' %}">
+            <p class="recipe-description">Chicken cooked with green chillies, onions, and spices. A spicy Indo-Chinese
+                dish.</p>
+            <a class="recipe-link" href="#">View Recipe</a>
+        </div>
+
+        <div class="recipe-card">
+            <h2 class="recipe-title">Chicken Tangdi</h2>
+            <img class="recipe-image" src="{% static 'images/chickentangdi.jpg' %}">
+            <p class="recipe-description">Grilled chicken drumsticks marinated with aromatic spices, a popular Indian
+                dish.</p>
+            <a class="recipe-link" href="#">View Recipe</a>
+        </div>
+
+        <div class="recipe-card">
+            <h2 class="recipe-title">Chicken Lollipop</h2>
+            <img class="recipe-image" src="{% static 'images/chickenlollipop.jpg' %}">
+            <p class="recipe-description">Spicy and crispy chicken drumettes, a favorite Indo-Chinese appetizer.</p>
+            <a class="recipe-link" href="#">View Recipe</a>
+        </div>
+
+    </div>
+
+    <div class="maincourse" style="display: none;" id="maincourse-cards">
+
+        <div class="recipe-card">
+            <h2 class="recipe-title">Butter Chicken</h2>
+            <img class="recipe-image" src="{% static 'images/butterchicken.jpg' %}">
+            <p class="recipe-description">A classic Indian dish made with tender chicken in a creamy and rich tomato-based sauce.</p>
+            <a class="recipe-link" href="{% url 'butterchicken' %}">View Recipe</a>
+        </div>
+        
+        <div class="recipe-card">
+            <h2 class="recipe-title">Mutton Biryani</h2>
+            <img class="recipe-image" src="{% static 'images/muttonbiryani.jpg' %}">
+            <p class="recipe-description">An aromatic rice dish made with succulent mutton and a blend of traditional Indian spices.</p>
+            <a class="recipe-link" href="{% url 'muttonbiryani' %}">View Recipe</a>
+        </div>
+        
+        <div class="recipe-card">
+            <h2 class="recipe-title">Chicken Biryani</h2>
+            <img class="recipe-image" src="{% static 'images/chickenbiryani.jpg' %}">
+            <p class="recipe-description">A fragrant and flavorful rice dish made with tender chicken and a mix of spices.</p>
+            <a class="recipe-link" href="{% url 'chickenbiryani' %}">View Recipe</a>
+        </div>
+        
+        <div class="recipe-card">
+            <h2 class="recipe-title">Chicken Tikka Masala</h2>
+            <img class="recipe-image" src="{% static 'images/chickentikkamasala.jpg' %}">
+            <p class="recipe-description">Marinated chicken cooked in a spicy tomato-based gravy, a popular Indian curry dish.</p>
+            <a class="recipe-link" href="#">View Recipe</a>
+        </div>
+        
+        <div class="recipe-card">
+            <h2 class="recipe-title">Chicken Fried Rice</h2>
+            <img class="recipe-image" src="{% static 'images/chickenfriedrice.jpg' %}">
+            <p class="recipe-description">Fried rice with chicken and vegetables, seasoned with soy sauce and spices.</p>
+            <a class="recipe-link" href="#">View Recipe</a>
+        </div>
+        
+        <div class="recipe-card">
+            <h2 class="recipe-title">Punjabi Chicken</h2>
+            <img class="recipe-image" src="{% static 'images/punjabichicken.jpg' %}">
+            <p class="recipe-description">A hearty and spicy chicken dish from the Punjab region, rich in flavors and textures.</p>
+            <a class="recipe-link" href="#">View Recipe</a>
+        </div>
+        
+
+    </div>
+
+    <div class="desserts" style="display: none;" id="desserts-cards">
+
+        <div class="recipe-card">
+            <h2 class="recipe-title">Jalebi</h2>
+            <img class="recipe-image" src="{% static 'images/jalebi.jpg' %}">
+            <p class="recipe-description">A crispy, spiral-shaped Indian sweet soaked in sugar syrup.</p>
+            <a class="recipe-link" href="{% url 'jalebi' %}">View Recipe</a>
+        </div>
+
+        <div class="recipe-card">
+            <h2 class="recipe-title">Gulab Jamun</h2>
+            <img class="recipe-image" src="{% static 'images/gulabjamun.jpg' %}">
+            <p class="recipe-description">Soft, spongy dumplings made from milk solids, soaked in sweet syrup.</p>
+            <a class="recipe-link" href="{% url 'gulabjamun' %}">View Recipe</a>
+        </div>
+
+        <div class="recipe-card">
+            <h2 class="recipe-title">Kheer</h2>
+            <img class="recipe-image" src="{% static 'images/kheer.jpg' %}">
+            <p class="recipe-description">A creamy rice pudding flavored with cardamom and garnished with nuts.</p>
+            <a class="recipe-link" href="{% url 'kheer' %}">View Recipe</a>
+        </div>
+
+        <div class="recipe-card">
+            <h2 class="recipe-title">Double Ka Meetha</h2>
+            <img class="recipe-image" src="{% static 'images/doublekameetha.jpg' %}">
+            <p class="recipe-description">A rich Indian dessert made from bread soaked in milk and sugar syrup.</p>
+            <a class="recipe-link" href="#">View Recipe</a>
+        </div>
+
+        <div class="recipe-card">
+            <h2 class="recipe-title">Rasgulla</h2>
+            <img class="recipe-image" src="{% static 'images/rasgulla.jpg' %}">
+            <p class="recipe-description">Spongy white dumplings made from chenna, soaked in sweet syrup.</p>
+            <a class="recipe-link" href="#">View Recipe</a>
+        </div>
+
+        <div class="recipe-card">
+            <h2 class="recipe-title">Gajar Ka Halwa</h2>
+            <img class="recipe-image" src="{% static 'images/gajarkahalwa.jpg' %}">
+            <p class="recipe-description">A traditional Indian dessert made from grated carrots, milk, and sugar.</p>
+            <a class="recipe-link" href="#">View Recipe</a>
+        </div>
+
+    </div>
+
+    <footer>
+        CopyRight @Recipe-Finder; Design By Katakam Koushik.
+    </footer>
+    <a class="gotopbtn" href="#"> <i class="fas fa-arrow-up"></i></a>
+
+</body>
+
+</html>

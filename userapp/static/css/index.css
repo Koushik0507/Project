@@ -1,0 +1,367 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Josefin Sans, sans-serif;
+    scroll-behavior: smooth;
+    text-decoration: none;
+    list-style: none;
+}
+
+body {
+    min-height: 100vh;
+    min-width: 400px;
+}
+
+/*-----------------Navigation Bar Section Starts From Here CSS------------------*/
+
+header {
+    display: flex;
+    align-items: center;
+    background: #acb4b5;
+    justify-content: space-between;
+    width: 100%;
+    height: 80px;
+    font-size: 18px;
+    padding: 0 5%;
+    font-size: 18px;
+}
+
+header .logo {
+    color: #213032;
+    margin-right: auto;
+    font-size: 25px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+}
+
+nav ul {
+    display: flex;
+    align-items: center;
+}
+
+nav ul li a {
+    position: relative;
+    color: #edffef;
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-left: 40px;
+    transition: .3s;
+    display: inline-block;
+}
+
+a.active,
+a:hover {
+    background-color: #97a2a3;
+    color: #213032;
+    padding: 8px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+nav .toggle_btn{
+    color: #213032;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: none;
+}
+
+.dropdown_menu{
+    position: absolute;
+    right: 2rem;
+    top: 60px;
+    width: 300px;
+    height: 0;
+    background: #6d7575;
+    backdrop-filter: blur(15px);
+    border-radius: 10px;
+    overflow: hidden;
+    display: none;
+    transition: height .2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.dropdown_menu.open{
+    height: 225px;
+}
+
+.dropdown_menu li{
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+}
+
+.dropdown_menu li a{
+    text-decoration: none;
+    color: black;
+    transition: .3s;
+}
+
+@media (max-width:800px){
+    .menu{
+        display: none;
+    }
+    nav .toggle_btn{
+        display: block;
+    }
+    .dropdown_menu{
+        display: block;
+    }
+}
+
+/*-----------------Landing Page Starts From Here CSS------------------*/
+
+.start {
+    background-image: url("{% static 'images/bg.png' %}");
+    background-position: center;
+    background-size: cover;
+    min-height: 100vh;
+    width: 100%;
+}
+
+.content {
+    display: flexbox;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding-top: 90px;
+}
+
+.content h4 {
+    color: #edffef;
+    font-size: 25px;
+    margin-left: 40px;
+    line-height: 75px;
+}
+
+.content h1 {
+    color: #213032;
+    font-size: 70px;
+    margin-left: 40px;
+    line-height: 75px;
+}
+
+.content h3 {
+    color: #edffef;
+    font-size: 35px;
+    margin-left: 40px;
+    line-height: 75px;
+}
+
+.button {
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #213032;
+    position: absolute;
+    padding: 13px 18px;
+    transition: .2s;
+    margin-left: 70px;
+    border-radius: 5px;
+}
+
+.button a{
+    text-decoration: none;
+    color: white;
+}
+
+.button:hover {
+    background-color: #97a2a3;
+    color: #213032;
+    cursor: pointer;
+    padding: 13px 18px;
+    font-weight: bold;
+}
+
+/*-----------------About Us Starts From Here CSS------------------*/
+.homecontent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #7c8283;
+}
+
+.homecontent img {
+    max-width: 500px;
+    width: 100%;
+    height: 100%;
+    float: left;
+    border-radius: 10px;
+    margin-right: 20px;
+}
+
+.container-1 {
+    margin: 100px auto;
+    width: 75%;
+}
+
+.container-1 h2 {
+    font-size: 75px;
+    padding: 35px 80px;
+}
+
+.info p {
+    font-size: 20px;
+    line-height: 30px;
+}
+
+.info h1 {
+    font-size: 36px;
+    line-height: 75px;
+}
+
+.info h3 {
+    font-size: 25px;
+    line-height: 25px;
+}
+
+.info h4 {
+    font-size: 20px;
+    line-height: 35px;
+}
+
+.homecontent2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #213032;
+}
+
+.homecontent2 img {
+    max-width: 500px;
+    width: 100%;
+    height: 100%;
+    float: left;
+    border-radius: 10px;
+    margin-right: 20px;
+}
+
+.container-2{
+    margin: 100px auto;
+    width: 75%;
+}
+
+.container-2 h2 {
+    font-size: 75px;
+    padding: 35px 20px;
+    color: #edffef;
+}
+
+.info2 p {
+    font-size: 20px;
+    padding-top: 35px;
+    line-height: 30px;
+    color: #edffef;
+}
+
+.info3 p {
+    font-size: 50px;
+    padding-top: 25px;
+    line-height: 50px;
+    color: #edffef;
+    text-transform: capitalize;
+    font-family: cursive;
+}
+
+/*-----------------Contact Section Starts From Here CSS------------------*/
+.contact-form {
+    padding: 80px;
+    text-align: center;
+    background-color: #7c8283;
+}
+
+.contact-form h3 {
+    color: black;
+    font-size: 30px;
+    font-size: 75px
+}
+
+.subject p {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+.subject ul {
+    list-style: none;
+    margin-bottom: 40px;
+    font-size: 19px;
+}
+
+.subject ul li a {
+    color: black;
+}
+
+.subject i {
+    font-size: 24px;
+}
+
+.contact-form input,
+textarea {
+    width: 70%;
+    padding: 15px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+.contact-form button {
+    background-color: #97a2a3;
+    color: #213032;
+    padding: 15px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 17px;
+    border: none;
+    transition: .4s;
+}
+
+.contact-form button:hover {
+    background-color: #000000;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+footer {
+    padding-top: 18px;
+    background-color: #1e3a42;
+    /* Dark blue for the footer */
+    color: #fff;
+    text-align: center;
+    height: 50px;
+    width: 100%;
+}
+
+.gotopbtn {
+    position: fixed;
+    width: 35px;
+    height: 35px;
+    background: #ffffff;
+    bottom: 20px;
+    right: 20px;
+    text-decoration: none;
+    text-align: center;
+    transition: .4s;
+    border-radius: 50px;
+    line-height: 37px;
+    color: black;
+}
+.gotopbtn:hover{
+    background-color: black;
+    color: #ffffff;
+    cursor: pointer;
+    border-radius: 50px;
+    line-height: 24px;
+}
+
+

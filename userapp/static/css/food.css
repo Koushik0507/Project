@@ -1,0 +1,253 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Josefin Sans, sans-serif;
+    scroll-behavior: smooth;
+}
+
+/*-----------------Navigation Bar Section Starts From Here CSS------------------*/
+
+header {
+    display: flex;
+    align-items: center;
+    background: #3498db;
+    /* Bright blue for the header */
+    justify-content: space-between;
+    width: 100%;
+    height: 80px;
+    font-size: 18px;
+    padding: 0 5%;
+    font-size: 18px;
+}
+
+header .logo {
+    color: #ffffff;
+    margin-right: auto;
+    font-size: 25px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    text-decoration: none;
+}
+
+nav ul {
+    display: flex;
+    align-items: center;
+    list-style: none;
+}
+
+nav ul li a {
+    position: relative;
+    color: #ffffff;
+    transition: 0.2s;
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-left: 40px;
+    transition: .3s;
+    display: inline-block;
+    list-style: none;
+    text-decoration: none;
+}
+
+nav a.active,
+nav a:hover {
+    background-color: #297fb8;
+    /* Darker blue for active/hovered links */
+    color: #ffffff;
+    padding: 8px;
+    border-radius: 3px;
+    cursor: pointer;
+    list-style: none;
+}
+
+nav .toggle_btn {
+    color: #ffffff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: none;
+    list-style: none;
+}
+
+.dropdown_menu {
+    position: absolute;
+    right: 2rem;
+    top: 60px;
+    width: 300px;
+    height: 0;
+    background: #3498db;
+    /* Bright blue for the dropdown menu */
+    backdrop-filter: blur(15px);
+    border-radius: 10px;
+    overflow: hidden;
+    display: none;
+    transition: .2s;
+    transition: smooth;
+    z-index: 1000;
+    list-style: none;
+    /* Ensure the dropdown menu appears above other elements */
+}
+
+.dropdown_menu.open {
+    height: 135px;
+    transition: .2s;
+    list-style: none;
+}
+
+.dropdown_menu li {
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    list-style: none;
+}
+
+.dropdown_menu li a {
+    text-decoration: none;
+    color: #ffffff;
+    transition: .3s;
+    list-style: none;
+    text-decoration: none;
+}
+
+@media (max-width:800px) {
+    .menu {
+        display: none;
+    }
+
+    nav .toggle_btn {
+        display: block;
+    }
+
+    .dropdown_menu {
+        display: block;
+    }
+}
+
+body{
+    background: #c3c8c9;
+}
+
+.recipe {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 800px;
+    margin: 40px auto;
+}
+
+.recipe-img {
+    text-align: center;
+}
+
+.recipe-img img {
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+.recipe-information {
+    margin-top: 20px;
+}
+
+.recipe-information h1 {
+    font-size: 2.5rem;
+    font-weight: 600;
+}
+
+.recipe-information p {
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.description{
+    margin-bottom: 25px;
+    margin-top: 2px;
+}
+
+.recipe-step-1,
+.recipe-step-2 {
+    background: #e0f7fa;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.instructions, .instructions{
+    padding-top: 5px;
+}
+
+.recipe-step-1 ul {
+    padding-left: 20px;
+}
+
+.recipe-step-1 ul li {
+    font-size: 1.1rem;
+    line-height: 40px;
+}
+
+hr {
+    border: 1px solid #565555;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    
+}
+
+.instructions .item {
+    display: flex;
+    align-items: center;
+    line-height: 40px;
+}
+
+.instructions .num {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-right: 10px;
+}
+
+.feature {
+    text-align: center;
+    margin-top: 32px;
+    margin-bottom: 16px;
+}
+
+.feature a {
+    text-decoration: underline;
+}
+
+/* Footer */
+footer {
+    padding-top: 18px;
+    background-color: #1e3a42;
+    /* Dark blue for the footer */
+    color: #fff;
+    text-align: center;
+    height: 50px;
+    width: 100%;
+}
+
+.gotopbtn {
+    position: fixed;
+    width: 35px;
+    height: 35px;
+    background: #ffffff;
+    bottom: 20px;
+    right: 20px;
+    text-decoration: none;
+    text-align: center;
+    transition: .4s;
+    border-radius: 50px;
+    line-height: 37px;
+    color: black;
+}
+.gotopbtn:hover{
+    background-color: black;
+    color: #ffffff;
+    cursor: pointer;
+    border-radius: 50px;
+    line-height: 24px;
+}

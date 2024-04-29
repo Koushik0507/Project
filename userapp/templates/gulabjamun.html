@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/food.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Recipe Finder</title>
+</head>
+
+<body>
+    <header>
+        <div class="logo">Recipe Finder</div>
+        <nav>
+            <ul class="menu" id="menuList">
+                <li><a href="{% url 'recipes' %}">Recipes</a></li>
+                <li><a href="{% url 'veg-recipes' %}" class="active">Veg Recipes</a></li>
+                <li><a href="{% url 'home' %}">Log-Out</a></li>
+            </ul>
+            <div class="toggle_btn">
+                <i class="fa fa-bars"></i>
+            </div>
+            <div class="dropdown_menu">
+                <li><a href="{% url 'recipes' %}">Recipes</a></li>
+                <li><a href="{% url 'veg-recipes' %}" class="active">Veg Recipes</a></li>
+                <li><a href="{% url 'home' %}">Log-Out</a></li>
+            </div>
+        </nav>
+    </header>
+
+    <script>
+        const toggleBtn = document.querySelector('.toggle_btn');
+        const toggleBtnIcon = document.querySelector('.toggle_btn i');
+        const dropDownMenu = document.querySelector('.dropdown_menu');
+
+        toggleBtn.onclick = function () {
+            dropDownMenu.classList.toggle('open');
+            const isOpen = dropDownMenu.classList.contains('open');
+            toggleBtnIcon.classList = isOpen ? 'fa fa-xmark' : 'fa fa-bars';
+        };
+    </script>
+
+    <div class="recipe">
+        <div class="recipe-img">
+            <img src="{% static 'images/gulabjamun.jpg' %}">
+        </div>
+        <div class="recipe-information">
+            <h1>Gulab Jamun</h1>
+            <p class="description">A delicious and classic dish that is perfect for any meal. This samosa recipe
+                combines crispy pastry with a flavorful filling, making it a favorite among food lovers.</p>
+
+            <div class="recipe-step-1">
+                <h2>Ingredients</h2>
+                <ul class="ingredients">
+                    <li>1 cup milk powder</li>
+                    <li>2 tablespoons all-purpose flour (maida)</li>
+                    <li>1/4 teaspoon baking powder</li>
+                    <li>2 tablespoons ghee or melted unsalted butter</li>
+                    <li>1/4 cup milk, or as needed to make a dough</li>
+                    <li>Oil or ghee for frying</li>
+                    <li>For sugar syrup:
+                        - 1 cup sugar
+                        - 1 cup water
+                        - 1/2 teaspoon cardamom powder
+                        - A few saffron strands (optional)
+                        - A few drops of rose water (optional)</li>
+                </ul>
+            </div>
+
+            <hr>
+
+            <div class="recipe-step-2">
+                <h2>Instructions</h2>
+                <div class="instructions">
+                    <div class="item">
+                        <div class="num">1.</div>
+                        <p>In a mixing bowl, combine milk powder, all-purpose flour, and baking powder.</p>
+                    </div>
+                    <div class="item">
+                        <div class="num">2.</div>
+                        <p>Add ghee or melted butter and mix well.</p>
+                    </div>
+                    <div class="item">
+                        <div class="num">3.</div>
+                        <p>Gradually add milk and knead into a soft dough. Add more milk if needed.</p>
+                    </div>
+                    <div class="item">
+                        <div class="num">4.</div>
+                        <p>Divide the dough into small equal-sized portions and roll them into smooth balls without any
+                            cracks.</p>
+                    </div>
+                    <div class="item">
+                        <div class="num">5.</div>
+                        <p>Heat oil or ghee in a deep pan over low-medium heat.</p>
+                    </div>
+                    <div class="item">
+                        <div class="num">6.</div>
+                        <p>Once the oil is hot, carefully add the rolled dough balls and fry on low heat until they turn
+                            golden brown. Stir gently to ensure even frying.</p>
+                    </div>
+                    <div class="item">
+                        <div class="num">7.</div>
+                        <p>Remove the fried balls using a slotted spoon and drain excess oil on a paper towel.</p>
+                    </div>
+                    <div class="item">
+                        <div class="num">8.</div>
+                        <p>In another saucepan, prepare the sugar syrup by combining sugar, water, cardamom powder,
+                            saffron strands (if using), and rose water (if using). Bring to a boil and simmer for 5-7
+                            minutes until the syrup thickens slightly.</p>
+                    </div>
+                    <div class="item">
+                        <div class="num">9.</div>
+                        <p>Turn off the heat and add the fried balls to the warm sugar syrup.</p>
+                    </div>
+                    <div class="item">
+                        <div class="num">10.</div>
+                        <p>Let the gulab jamuns soak in the syrup for at least 1-2 hours before serving.</p>
+                    </div>
+                    <div class="item">
+                        <div class="num">11.</div>
+                        <p>Serve warm or at room temperature. Enjoy your delicious homemade gulab jamuns!</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="feature">
+                <p>Want to feature your own recipe? <a href="https://forms.gle/3e3RaBDGumVrKVc56" target=”_blank”>Send us your recipe now!</a></p>
+            </div>
+        </div>
+    </div>
+    <a class="gotopbtn" href="#"> <i class="fas fa-arrow-up"></i></a>
+    <footer>
+        &copy; Recipe Finder. Designed by Katakam Koushik.
+    </footer>
+
+</body>
+
+</html>

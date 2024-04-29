@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=7">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/recipe.css' %}" />
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,400;1,200;1,300;1,600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Recipe Finder</title>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            Recipe Finder
+        </div>
+        <nav>
+            <ul class="menu" id="menuList">
+                <li><a href="{% url 'recipes' %}" class="active">Recipes</a></li>
+                <li><a href="{% url 'home' %}">Log-Out</a></li>
+            </ul>
+            <div class="toggle_btn">
+                <i class="fa fa-bars"></i>
+            </div>
+            <div class="dropdown_menu">
+                <li><a href="{% url 'recipes' %}" class="active">Recipes</a></li>
+                <li><a href="{% url 'home' %}">Log-Out</a></li>
+            </div>
+        </nav>
+    </header>
+    <script>
+
+        const toggleBtn = document.querySelector('.toggle_btn')
+        const toggleBtnIcon = document.querySelector('.toggle_btn i')
+        const dropDownMenu = document.querySelector('.dropdown_menu')
+
+        toggleBtn.onclick = function () {
+            dropDownMenu.classList.toggle('open')
+            const isOpen = dropDownMenu.classList.contains('open')
+
+            toggleBtnIcon.classList = isOpen
+                ? 'fa fa-xmark'
+                : 'fa fa-bars'
+        }
+    </script>
+    
+    <!-- Information about Veg Recipes -->
+    <div class="info-section">
+        <div class="veg-info">
+            <h2>Veg Recipes</h2>
+            <p>
+                Discover a delightful array of vegetarian recipes that showcase the richness of flavors,
+                textures, and nutritional benefits. Whether you follow a vegetarian lifestyle for health reasons,
+                ethical considerations, or personal preferences, our collection has something for everyone.
+            </p>
+        </div>
+        
+        <!-- Information about Non-Veg Recipes -->
+        <div class="nonveg-info">
+            <h2>Non-Veg Recipes</h2>
+            <p>
+                Indulge in the world of non-vegetarian cuisine, featuring a diverse range of flavors, cooking
+                techniques, and regional specialties. From protein-rich dishes to culinary traditions, explore
+                recipes influenced by cultural diversity and individual preferences.
+            </p>
+        </div>
+    </div>
+
+    <div class="recipes">
+        <div class="card">
+            <img src="{% static 'images/vegrecipe.jpeg' %}" class="card-img" alt="">
+            <div class="card-body">
+                <h1 class="card-title">Veg-Recipes</h1>
+                <p class="card-sub-title">Explore your Taste</p>
+                <p class="card-info">Vegetarian cuisine is diverse and offers a wide range of flavors, textures, and
+                    nutritional benefits. These diets are popular among individuals for
+                    various reasons, including health benefits, ethical considerations, environmental concerns, and
+                    cultural preferences. </p>
+                <button class="card-btn"><a href="{% url 'veg-recipes' %}">Explore</a></button>
+            </div>
+        </div>
+        <div class="card">
+            <img src="{% static 'images/nonvegrecipe.jpeg' %}" class="card-img" alt="">
+            <div class="card-body">
+                <h1 class="card-title">Non-Veg Recipes</h1>
+                <p class="card-sub-title">Explore your Taste</p>
+                <p class="card-info"> Non-vegetarian cuisine encompasses a wide range of flavors, cooking techniques,
+                    and regional specialties. These recipes often feature protein-rich ingredients and can vary widely
+                    depending on cultural influences and culinary traditions. Some people choose to include
+                    non-vegetarian foods in their diet for
+                    cultural reasons, personal preferences, or nutritional requirements. </p>
+                <button class="card-btn"><a href="{% url 'nonveg-recipes' %}">Explore</a></button>
+            </div>
+        </div>
+
+    </div>
+    <a class="gotopbtn" href="#"> <i class="fas fa-arrow-up"></i></a>
+    <footer>
+        CopyRight @Recipe-Finder; Design By Katakam Koushik.
+    </footer>
+</body>
+
+</html>

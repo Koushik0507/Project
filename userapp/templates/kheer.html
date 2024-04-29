@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/food.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Recipe Finder</title>
+</head>
+
+<body>
+    <header>
+        <div class="logo">Recipe Finder</div>
+        <nav>
+            <ul class="menu" id="menuList">
+                <li><a href="{% url 'recipes' %}">Recipes</a></li>
+                <li><a href="{% url 'veg-recipes' %}" class="active">Veg Recipes</a></li>
+                <li><a href="{% url 'home' %}">Log-Out</a></li>
+            </ul>
+            <div class="toggle_btn">
+                <i class="fa fa-bars"></i>
+            </div>
+            <div class="dropdown_menu">
+                <li><a href="{% url 'recipes' %}">Recipes</a></li>
+                <li><a href="{% url 'veg-recipes' %}" class="active">Veg Recipes</a></li>
+                <li><a href="{% url 'home' %}">Log-Out</a></li>
+            </div>
+        </nav>
+    </header>
+
+    <script>
+        const toggleBtn = document.querySelector('.toggle_btn');
+        const toggleBtnIcon = document.querySelector('.toggle_btn i');
+        const dropDownMenu = document.querySelector('.dropdown_menu');
+
+        toggleBtn.onclick = function () {
+            dropDownMenu.classList.toggle('open');
+            const isOpen = dropDownMenu.classList.contains('open');
+            toggleBtnIcon.classList = isOpen ? 'fa fa-xmark' : 'fa fa-bars';
+        };
+    </script>
+
+    <div class="recipe">
+        <div class="recipe-img">
+            <img src="{% static 'images/kheer.jpg' %}">
+        </div>
+        <div class="recipe-information">
+            <h1>Kheer</h1>
+            <p class="description">Kheer is a traditional Indian dessert made by boiling rice or vermicelli in milk,
+                sweetened with sugar, and flavored with cardamom, saffron, or other aromatic spices. Often garnished
+                with nuts like almonds, cashews, or pistachios, Kheer has a creamy texture and a delightful aroma.</p>
+
+            <div class="recipe-step-1">
+                <h2>Ingredients</h2>
+                <ul class="ingredients">
+                    <li>1/2 cup rice</li>
+                    <li>4 cups milk</li>
+                    <li>1/2 cup sugar (adjust to taste)</li>
+                    <li>1/4 teaspoon cardamom powder</li>
+                    <li>Saffron strands (optional)</li>
+                    <li>Chopped nuts (almonds, cashews, pistachios) for garnish</li>
+                </ul>
+            </div>
+
+            <hr>
+
+            <div class="recipe-step-2">
+                <h2>Instructions</h2>
+                <div class="instructions">
+                    <div class="item">
+                        <div class="num">1.</div>
+                        <p>Wash rice and soak it in water for 30 minutes.</p>
+                    </div>
+                    <div class="item">
+                        <div class="num">2.</div>
+                        <p>Drain the rice and set it aside.</p>
+                    </div>
+                    <div class="item">
+                        <div class="num">3.</div>
+                        <p>In a heavy-bottomed pan, bring milk to a boil over medium heat.</p>
+                    </div>
+                    <div class="item">
+                        <div class="num">4.</div>
+                        <p>Add the soaked and drained rice to the boiling milk. Stir occasionally to prevent sticking.
+                        </p>
+                    </div>
+                    <div class="item">
+                        <div class="num">5.</div>
+                        <p>Simmer the rice and milk mixture on low heat, stirring frequently, until the rice is cooked
+                            and the mixture thickens. This may take about 30-40 minutes.</p>
+                    </div>
+                    <div class="item">
+                        <div class="num">6.</div>
+                        <p>Once the rice is cooked and the mixture has thickened, add sugar and mix well until it
+                            dissolves completely.</p>
+                    </div>
+                    <div class="item">
+                        <div class="num">7.</div>
+                        <p>Add cardamom powder and saffron strands (if using), and mix well.</p>
+                    </div>
+                    <div class="item">
+                        <div class="num">8.</div>
+                        <p>Cook for another 5-10 minutes until the kheer reaches the desired consistency.</p>
+                    </div>
+                    <div class="item">
+                        <div class="num">9.</div>
+                        <p>Remove from heat and let it cool for a while.</p>
+                    </div>
+                    <div class="item">
+                        <div class="num">10.</div>
+                        <p>Garnish with chopped nuts.</p>
+                    </div>
+                    <div class="item">
+                        <div class="num">11.</div>
+                        <p>Serve warm or chilled. Enjoy your creamy and delicious kheer!</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="feature">
+                <p>Want to feature your own recipe? <a href="https://forms.gle/3e3RaBDGumVrKVc56" target=”_blank”>Send us your recipe now!</a></p>
+            </div>
+        </div>
+    </div>
+    <a class="gotopbtn" href="#"> <i class="fas fa-arrow-up"></i></a>
+    <footer>
+        &copy; Recipe Finder. Designed by Katakam Koushik.
+    </footer>
+
+</body>
+
+</html>

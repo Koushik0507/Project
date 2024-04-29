@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/food.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Recipe Finder</title>
+</head>
+
+<body>
+    <header>
+        <div class="logo">Recipe Finder</div>
+        <nav>
+            <ul class="menu" id="menuList">
+                <li><a href="{% url 'recipes' %}">Recipes</a></li>
+                <li><a href="{% url 'veg-recipes' %}" class="active">Veg Recipes</a></li>
+                <li><a href="{% url 'home' %}">Log-Out</a></li>
+            </ul>
+            <div class="toggle_btn">
+                <i class="fa fa-bars"></i>
+            </div>
+            <div class="dropdown_menu">
+                <li><a href="{% url 'recipes' %}">Recipes</a></li>
+                <li><a href="{% url 'veg-recipes' %}" class="active">Veg Recipes</a></li>
+                <li><a href="{% url 'home' %}">Log-Out</a></li>
+            </div>
+        </nav>
+    </header>
+
+    <script>
+        const toggleBtn = document.querySelector('.toggle_btn');
+        const toggleBtnIcon = document.querySelector('.toggle_btn i');
+        const dropDownMenu = document.querySelector('.dropdown_menu');
+
+        toggleBtn.onclick = function () {
+            dropDownMenu.classList.toggle('open');
+            const isOpen = dropDownMenu.classList.contains('open');
+            toggleBtnIcon.classList = isOpen ? 'fa fa-xmark' : 'fa fa-bars';
+        };
+    </script>
+
+    <div class="recipe">
+        <div class="recipe-img">
+            <img src="{% static 'images/jalebi.jpg' %}">
+        </div>
+        <div class="recipe-information">
+            <h1>Jalebi</h1>
+            <p class="description">Jalebi is a popular Indian dessert made by deep-frying spiral-shaped batter and
+                soaking it in a sugar syrup. These golden, crispy spirals have a unique, chewy texture and a sweet,
+                tangy flavor.</p>
+
+            <div class="recipe-step-1">
+                <h2>Ingredients</h2>
+                <ul class="ingredients">
+                    <li>1 cup all-purpose flour (maida)</li>
+                    <li>2 tablespoons gram flour (besan)</li>
+                    <li>1/2 teaspoon baking powder</li>
+                    <li>1/4 teaspoon turmeric powder (for color)</li>
+                    <li>1 cup water</li>
+                    <li>1 teaspoon lemon juice or yogurt</li>
+                    <li>Oil or ghee for frying</li>
+                    <li>For sugar syrup:
+                        - 1 cup sugar
+                        - 1/2 cup water
+                        - A few saffron strands
+                        - 1/2 teaspoon cardamom powder
+                        - 1/2 teaspoon rose water (optional)</li>
+                </ul>
+            </div>
+
+            <hr>
+
+            <div class="recipe-step-2">
+                <h2>Instructions</h2>
+                <div class="instructions">
+                    <div class="item">
+                        <div class="num">1.</div>
+                        <p>In a mixing bowl, combine all-purpose flour, gram flour, baking powder, and turmeric powder.
+                        </p>
+                    </div>
+                    <div class="item">
+                        <div class="num">2.</div>
+                        <p>Gradually add water and lemon juice (or yogurt) to make a smooth batter. The consistency
+                            should be similar to pancake batter.</p>
+                    </div>
+                    <div class="item">
+                        <div class="num">3.</div>
+                        <p>Cover the batter and let it ferment for 8-10 hours or overnight.</p>
+                    </div>
+                    <div class="item">
+                        <div class="num">4.</div>
+                        <p>In a saucepan, prepare the sugar syrup by combining sugar, water, saffron strands, and
+                            cardamom powder. Bring to a boil and simmer for 5-7 minutes until the syrup thickens
+                            slightly. Add rose water if using, and then turn off the heat.</p>
+                    </div>
+                    <div class="item">
+                        <div class="num">5.</div>
+                        <p>Heat oil or ghee in a deep frying pan over medium heat.</p>
+                    </div>
+                    <div class="item">
+                        <div class="num">6.</div>
+                        <p>Pour the batter into a squeeze bottle or a piping bag with a small hole.</p>
+                    </div>
+                    <div class="item">
+                        <div class="num">7.</div>
+                        <p>Squeeze the batter in a circular motion into the hot oil to form jalebi shapes.</p>
+                    </div>
+                    <div class="item">
+                        <div class="num">8.</div>
+                        <p>Fry until the jalebis are crisp and golden brown on both sides.</p>
+                    </div>
+                    <div class="item">
+                        <div class="num">9.</div>
+                        <p>Remove the jalebis from the oil and immediately dip them into the warm sugar syrup for a few
+                            seconds.</p>
+                    </div>
+                    <div class="item">
+                        <div class="num">10.</div>
+                        <p>Remove the jalebis from the syrup and place them on a plate to drain excess syrup.</p>
+                    </div>
+                    <div class="item">
+                        <div class="num">11.</div>
+                        <p>Serve the jalebis warm. Enjoy the sweet and crispy jalebis!</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="feature">
+                <p>Want to feature your own recipe? <a href="https://forms.gle/3e3RaBDGumVrKVc56" target=”_blank”>Send us your recipe now!</a></p>
+            </div>
+        </div>
+    </div>
+    <a class="gotopbtn" href="#"> <i class="fas fa-arrow-up"></i></a>
+    <footer>
+        &copy; Recipe Finder. Designed by Katakam Koushik.
+    </footer>
+
+</body>
+
+</html>

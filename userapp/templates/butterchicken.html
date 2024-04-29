@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/food.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Recipe Finder</title>
+</head>
+
+<body>
+    <header>
+        <div class="logo">Recipe Finder</div>
+        <nav>
+            <ul class="menu" id="menuList">
+                <li><a href="{% url 'recipes' %}">Recipes</a></li>
+                <li><a href="{% url 'nonveg-recipes' %}" class="active">Non-Veg Recipes</a></li>
+                <li><a href="{% url 'home' %}">Log-Out</a></li>
+            </ul>
+            <div class="toggle_btn">
+                <i class="fa fa-bars"></i>
+            </div>
+            <div class="dropdown_menu">
+                <li><a href="{% url 'recipes' %}">Recipes</a></li>
+                <li><a href="{% url 'nonveg-recipes' %}" class="active">Non-Veg Recipes</a></li>
+                <li><a href="{% url 'home' %}">Log-Out</a></li>
+            </div>
+        </nav>
+    </header>
+
+    <script>
+        const toggleBtn = document.querySelector('.toggle_btn');
+        const toggleBtnIcon = document.querySelector('.toggle_btn i');
+        const dropDownMenu = document.querySelector('.dropdown_menu');
+
+        toggleBtn.onclick = function () {
+            dropDownMenu.classList.toggle('open');
+            const isOpen = dropDownMenu.classList.contains('open');
+            toggleBtnIcon.classList = isOpen ? 'fa fa-xmark' : 'fa fa-bars';
+        };
+    </script>
+
+    <div class="recipe">
+        <div class="recipe-img">
+            <img src="{% static 'images/butterchicken.jpg' %}">
+        </div>
+        <div class="recipe-information">
+            <h1>Butter Chicken</h1>
+            <p class="description">Butter Chicken is a rich and creamy dish made with tender chicken pieces in a
+                flavorful tomato-based sauce. It is a beloved dish in Indian cuisine, known for its vibrant color and
+                aromatic spices, and is often enjoyed with naan or rice.</p>
+
+            <div class="recipe-step-1">
+                <h2>Ingredients</h2>
+                <ul class="ingredients">
+                    <li>500g boneless chicken, cut into bite-sized pieces</li>
+                    <li>1 onion, finely chopped</li>
+                    <li>2 tomatoes, pureed</li>
+                    <li>2 tablespoons butter</li>
+                    <li>2 tablespoons oil</li>
+                    <li>1 tablespoon ginger-garlic paste</li>
+                    <li>1 teaspoon chili powder</li>
+                    <li>1 teaspoon coriander powder</li>
+                    <li>1/2 teaspoon turmeric powder</li>
+                    <li>1/2 teaspoon garam masala</li>
+                    <li>1/2 cup cream</li>
+                    <li>Salt to taste</li>
+                    <li>Fresh coriander leaves for garnish</li>
+                </ul>
+            </div>
+
+            <hr>
+
+            <div class="recipe-step-2">
+                <h2>Instructions</h2>
+                <div class="instructions">
+                    <div class="item">
+                        <div class="num">1.</div>
+                        <p>Heat oil and butter in a pan over medium heat.</p>
+                    </div>
+                    <div class="item">
+                        <div class="num">2.</div>
+                        <p>Add chopped onions and sauté until golden brown.</p>
+                    </div>
+                    <div class="item">
+                        <div class="num">3.</div>
+                        <p>Add ginger-garlic paste and sauté for a minute until fragrant.</p>
+                    </div>
+                    <div class="item">
+                        <div class="num">4.</div>
+                        <p>Add chicken pieces to the pan and cook until they turn white and are no longer pink.</p>
+                    </div>
+                    <div class="item">
+                        <div class="num">5.</div>
+                        <p>Add chili powder, coriander powder, turmeric powder, and salt. Mix well and cook for 2-3
+                            minutes.</p>
+                    </div>
+                    <div class="item">
+                        <div class="num">6.</div>
+                        <p>Add tomato puree and cook until the oil separates from the masala.</p>
+                    </div>
+                    <div class="item">
+                        <div class="num">7.</div>
+                        <p>Add cream and garam masala. Mix well and simmer for 5-7 minutes until the chicken is cooked
+                            through and the gravy thickens.</p>
+                    </div>
+                    <div class="item">
+                        <div class="num">8.</div>
+                        <p>Garnish with fresh coriander leaves.</p>
+                    </div>
+                    <div class="item">
+                        <div class="num">9.</div>
+                        <p>Serve hot with naan or rice. Enjoy your creamy and delicious butter chicken!</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="feature">
+                <p>Want to feature your own recipe? <a href="https://forms.gle/3e3RaBDGumVrKVc56" target=”_blank”>Send us your recipe now!</a></p>
+            </div>
+        </div>
+    </div>
+    <a class="gotopbtn" href="#"> <i class="fas fa-arrow-up"></i></a>
+    <footer>
+        &copy; Recipe Finder. Designed by Katakam Koushik.
+    </footer>
+
+</body>
+
+</html>

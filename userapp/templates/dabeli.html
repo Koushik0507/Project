@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/food.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Recipe Finder</title>
+</head>
+
+<body>
+    <header>
+        <div class="logo">Recipe Finder</div>
+        <nav>
+            <ul class="menu" id="menuList">
+                <li><a href="{% url 'recipes' %}">Recipes</a></li>
+                <li><a href="{% url 'veg-recipes' %}" class="active">Veg Recipes</a></li>
+                <li><a href="{% url 'home' %}">Log-Out</a></li>
+            </ul>
+            <div class="toggle_btn">
+                <i class="fa fa-bars"></i>
+            </div>
+            <div class="dropdown_menu">
+                <li><a href="{% url 'recipes' %}">Recipes</a></li>
+                <li><a href="{% url 'veg-recipes' %}" class="active">Veg Recipes</a></li>
+                <li><a href="{% url 'home' %}">Log-Out</a></li>
+            </div>
+        </nav>
+    </header>
+
+    <script>
+        const toggleBtn = document.querySelector('.toggle_btn');
+        const toggleBtnIcon = document.querySelector('.toggle_btn i');
+        const dropDownMenu = document.querySelector('.dropdown_menu');
+
+        toggleBtn.onclick = function () {
+            dropDownMenu.classList.toggle('open');
+            const isOpen = dropDownMenu.classList.contains('open');
+            toggleBtnIcon.classList = isOpen ? 'fa fa-xmark' : 'fa fa-bars';
+        };
+    </script>
+
+    <div class="recipe">
+        <div class="recipe-img">
+            <img src="{% static 'images/dabeli.jpg' %}">
+        </div>
+        <div class="recipe-information">
+            <h1>Dabeli</h1>
+            <p class="description">Dabeli is a popular street food from the Kutch region of Gujarat, India. It's a
+                savory snack made by stuffing a soft bread roll (pav) with a spicy potato filling, pomegranate seeds,
+                roasted peanuts, and a mix of chutneys.</p>
+
+            <div class="recipe-step-1">
+                <h2>Ingredients</h2>
+                <ul class="ingredients">
+                    <li>6 burger buns or pav</li>
+                    <li>4 medium-sized potatoes, boiled and mashed</li>
+                    <li>1/2 cup roasted peanuts, coarsely ground</li>
+                    <li>1/4 cup pomegranate seeds</li>
+                    <li>2 tablespoons dabeli masala</li>
+                    <li>2 tablespoons tamarind chutney</li>
+                    <li>2 tablespoons green chutney</li>
+                    <li>2 tablespoons oil</li>
+                    <li>Salt to taste</li>
+                    <li>Butter for toasting buns</li>
+                    <li>Sev (fried gram flour vermicelli) for garnish</li>
+                    <li>Coriander leaves for garnish</li>
+                </ul>
+            </div>
+
+            <hr>
+
+            <div class="recipe-step-2">
+                <h2>Instructions</h2>
+                <div class="instructions">
+                    <div class="item">
+                        <div class="num">1.</div>
+                        <p>Heat oil in a pan. Add mashed potatoes, dabeli masala, and salt. Mix well and cook for 2-3
+                            minutes.</p>
+                    </div>
+                    <div class="item">
+                        <div class="num">2.</div>
+                        <p>Cut the buns horizontally into halves. Apply butter on the inner sides and toast them on a
+                            griddle until golden brown.</p>
+                    </div>
+                    <div class="item">
+                        <div class="num">3.</div>
+                        <p>Spread green chutney on one side of the toasted buns and tamarind chutney on the other side.
+                        </p>
+                    </div>
+                    <div class="item">
+                        <div class="num">4.</div>
+                        <p>Place a portion of the potato mixture on the green chutney side of each bun.</p>
+                    </div>
+                    <div class="item">
+                        <div class="num">5.</div>
+                        <p>Sprinkle roasted peanuts and pomegranate seeds on top of the potato mixture.</p>
+                    </div>
+                    <div class="item">
+                        <div class="num">6.</div>
+                        <p>Close the buns with the tamarind chutney side and press gently.</p>
+                    </div>
+                    <div class="item">
+                        <div class="num">7.</div>
+                        <p>Heat a little oil on a griddle and roast the stuffed buns for a minute on each side.</p>
+                    </div>
+                    <div class="item">
+                        <div class="num">8.</div>
+                        <p>Remove from heat and garnish with sev and chopped coriander leaves.</p>
+                    </div>
+                    <div class="item">
+                        <div class="num">9.</div>
+                        <p>Serve hot with additional chutneys on the side. Enjoy your tasty dabeli!</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="feature">
+                <p>Want to feature your own recipe? <a href="https://forms.gle/3e3RaBDGumVrKVc56" target=”_blank”>Send us your recipe now!</a></p>
+            </div>
+        </div>
+    </div>
+    <a class="gotopbtn" href="#"> <i class="fas fa-arrow-up"></i></a>
+    <footer>
+        &copy; Recipe Finder. Designed by Katakam Koushik.
+    </footer>
+
+</body>
+
+</html>

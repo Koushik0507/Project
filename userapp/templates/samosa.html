@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/food.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Recipe Finder</title>
+</head>
+<body>
+    <header>
+        <div class="logo">Recipe Finder</div>
+        <nav>
+            <ul class="menu" id="menuList">
+                <li><a href="{% url 'recipes' %}">Recipes</a></li>
+                <li><a href="{% url 'veg-recipes' %}" class="active">Veg Recipes</a></li>
+                <li><a href="{% url 'home' %}">Log-Out</a></li>
+            </ul>
+            <div class="toggle_btn">
+                <i class="fa fa-bars"></i>
+            </div>
+            <div class="dropdown_menu">
+                <li><a href="{% url 'recipes' %}">Recipes</a></li>
+                <li><a href="{% url 'veg-recipes' %}" class="active">Veg Recipes</a></li>
+                <li><a href="{% url 'home' %}">Log-Out</a></li>
+            </div>
+        </nav>
+    </header>
+
+    <script>
+        const toggleBtn = document.querySelector('.toggle_btn');
+        const toggleBtnIcon = document.querySelector('.toggle_btn i');
+        const dropDownMenu = document.querySelector('.dropdown_menu');
+
+        toggleBtn.onclick = function () {
+            dropDownMenu.classList.toggle('open');
+            const isOpen = dropDownMenu.classList.contains('open');
+            toggleBtnIcon.classList = isOpen ? 'fa fa-xmark' : 'fa fa-bars';
+        };
+    </script>
+
+    <div class="recipe">
+        <div class="recipe-img">
+            <img src="{% static 'images/samosa.jpg' %}">
+        </div>
+        <div class="recipe-information">
+            <h1>Samosa</h1>
+            <p class="description">A delicious and classic dish that is perfect for any meal. This samosa recipe combines crispy pastry with a flavorful filling, making it a favorite among food lovers.</p>
+
+            <div class="recipe-step-1">
+                <h2>Ingredients</h2>
+                <ul class="ingredients">
+                    <li>2 cups all-purpose flour</li>
+                    <li>2 tablespoons oil</li>
+                    <li>Salt to taste</li>
+                    <li>Water for kneading dough</li>
+                    <li>2 cups boiled and mashed potatoes</li>
+                    <li>1 cup boiled peas</li>
+                    <li>1 small onion, finely chopped</li>
+                    <li>1/2 teaspoon turmeric powder</li>
+                    <li>1 teaspoon cumin seeds</li>
+                    <li>1 teaspoon grated ginger</li>
+                    <li>1 teaspoon garam masala</li>
+                    <li>1 teaspoon coriander powder</li>
+                    <li>1 teaspoon amchur (dried mango powder) or lemon juice</li>
+                    <li>Salt to taste</li>
+                    <li>Fresh coriander leaves, chopped (optional)</li>
+                    <li>Oil for frying</li>
+                </ul>
+            </div>
+
+            <hr>
+
+            <div class="recipe-step-2">
+                <h2>Instructions</h2>
+                <div class="instructions">
+                    <div class="item">
+                        <div class="num">1.</div>
+                        <p>In a bowl, mix flour, oil, and salt. Add water gradually and knead to make a firm dough. Cover and let it rest for 30 minutes.</p>
+                    </div>
+                    <div class="item">
+                        <div class="num">2.</div>
+                        <p>Heat oil in a pan, add cumin seeds and let them splutter. Add chopped onions and sauté until they turn translucent.</p>
+                    </div>
+                    <div class="item">
+                        <div class="num">3.</div>
+                        <p>Add grated ginger and sauté for a minute.</p>
+                    </div>
+                    <div class="item">
+                        <div class="num">4.</div>
+                        <p>Add mashed potatoes, boiled peas, garam masala, coriander powder, amchur,  turmeric powder, red chili powder, and salt. Mix well and cook for 2-3 minutes. Add chopped coriander leaves. Let the mixture cool.</p>
+                    </div>
+                    <div class="item">
+                        <div class="num">5.</div>
+                        <p>Divide the dough into small balls. Roll each ball into a thin oval-shaped sheet.</p>
+                    </div>
+                    <div class="item">
+                        <div class="num">6.</div>
+                        <p>Cut the rolled dough into halves. Take one half, apply water on the straight edge, and fold it to form a cone.</p>
+                    </div>
+                    <div class="item">
+                        <div class="num">7.</div>
+                        <p>Fill the cone with the potato-peas mixture and seal the open edges tightly.</p>
+                    </div>
+                    <div class="item">
+                        <div class="num">8.</div>
+                        <p>Heat oil in a deep pan for frying.</p>
+                    </div>
+                    <div class="item">
+                        <div class="num">9.</div>
+                        <p>Once the oil is hot, gently slide in the samosas and fry on medium heat until they turn golden brown and crispy.</p>
+                    </div>
+                    <div class="item">
+                        <div class="num">10.</div>
+                        <p>Remove from oil and drain excess oil on a paper towel.</p>
+                    </div>
+                    <div class="item">
+                        <div class="num">11.</div>
+                        <p>Serve hot with green chutney or ketchup. Enjoy your delicious samosas!</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="feature">
+                <p>Want to feature your own recipe? <a href="https://forms.gle/3e3RaBDGumVrKVc56" target=”_blank”>Send us your recipe now!</a></p>
+            </div>
+        </div>
+    </div>
+    <a class="gotopbtn" href="#"> <i class="fas fa-arrow-up"></i></a>
+    <footer>
+        &copy; Recipe Finder. Designed by Katakam Koushik.
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,400 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Josefin Sans, sans-serif;
+    scroll-behavior: smooth;
+    text-decoration: none;
+    list-style: none;
+}
+
+body {
+    min-height: 100vh;
+    min-width: 400px;
+    background: #c3c8c9;
+    /* Background color for the body */
+}
+
+/*-----------------Navigation Bar Section Starts From Here CSS------------------*/
+
+header {
+    display: flex;
+    align-items: center;
+    background: #3498db;
+    /* Bright blue for the header */
+    justify-content: space-between;
+    width: 100%;
+    height: 80px;
+    font-size: 18px;
+    padding: 0 5%;
+    font-size: 18px;
+}
+
+header .logo {
+    color: #ffffff;
+    margin-right: auto;
+    font-size: 25px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+}
+
+nav ul {
+    display: flex;
+    align-items: center;
+}
+
+nav ul li a {
+    position: relative;
+    color: #ffffff;
+    transition: 0.2s;
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-left: 40px;
+    transition: .3s;
+    display: inline-block;
+}
+
+a.active,
+a:hover {
+    background-color: #297fb8;
+    /* Darker blue for active/hovered links */
+    color: #ffffff;
+    padding: 8px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+nav .toggle_btn {
+    color: #ffffff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: none;
+}
+
+.dropdown_menu {
+    position: absolute;
+    right: 2rem;
+    top: 60px;
+    width: 300px;
+    height: 0;
+    background: #3498db;
+    /* Bright blue for the dropdown menu */
+    backdrop-filter: blur(15px);
+    border-radius: 10px;
+    overflow: hidden;
+    display: none;
+    transition: .2s;
+    transition: smooth;
+    z-index: 1000;
+    /* Ensure the dropdown menu appears above other elements */
+}
+
+.dropdown_menu.open {
+    height: 135px;
+    transition: .2s;
+}
+
+.dropdown_menu li {
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+}
+
+.dropdown_menu li a {
+    text-decoration: none;
+    color: #ffffff;
+    transition: .3s;
+}
+
+@media (max-width:800px) {
+    .menu {
+        display: none;
+    }
+
+    nav .toggle_btn {
+        display: block;
+    }
+
+    .dropdown_menu {
+        display: block;
+    }
+}
+
+.recipes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #c3c8c9;
+    /* Light gray for the recipes section background */
+    min-height: 87vh;
+}
+
+
+.container {
+    position: relative;
+    /*we are using relative so that the position of the card is fixed even when it is scrolled */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 60px 75px;
+    padding: 50px 35px;
+}
+
+/* These are the cards created for recipes */
+
+.container .card {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 400px;
+    height: 375px;
+    background: #fff;
+    border-radius: 25px;
+    box-shadow: 0 35px 80px rgba(0, 0, 0, 0.15);
+    transition: 0.3s;
+}
+
+.container .card:hover {
+    height: 450px;
+}
+
+.container .card .imgBx {
+    position: absolute;
+    top: 26px;
+    width: 325px;
+    height: 280px;
+    border-radius: 10px;
+    background: black;
+    transition: .3s;
+    overflow: hidden;
+}
+
+.container .card:hover .imgBx {
+    top: -50px;
+    scale: 0.95;
+}
+
+.container .card .imgBx img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.container .card .content {
+    position: absolute;
+    top: 328px;
+    width: 100%;
+    padding: 0px 30px;
+    text-align: center;
+    overflow: hidden;
+    height: 24px;
+    transition: .3s;
+    line-height: 25px;
+}
+
+.container .card:hover .content {
+    height: 250px;
+    top: 242px;
+    line-height: 36px;
+}
+
+.container .card:hover .content a {
+    transition: .2s;
+}
+
+/* These are the cards created for snacks, maincourse and dessert recipies */
+
+.snacks, .maincourse, .desserts {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 75px;
+    padding: 75px;
+    background-color: rgb(161, 158, 158);
+}
+
+.recipe-card {
+    width: calc(23%);
+    border-radius: 8px;
+    padding: 30px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    transition: .3s;
+}
+
+.recipe-card:hover {
+    scale: 1.1;
+    transition: .2s;
+}
+
+/*.recipe-card:hover .recipe-link {
+    background-color: #3498db;
+    color: #fff;
+    padding: 5px;
+}*/
+
+.recipe-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: rgb(0, 0, 0);
+}
+
+.recipe-description {
+    font-size: 16px;
+    color: #000000;
+    margin-bottom: 10px;
+}
+
+
+
+/* Media Query for extra small screens */
+@media (max-width: 1200px) {
+    .recipe-card {
+        width: calc(45% - 20px); /* Show one card per row on small screens */
+    }
+
+    .recipe-title {
+        font-size: 20px; /* Further decrease font size for extra small screens */
+    }
+
+    .recipe-description {
+        font-size: 16px; /* Further decrease font size for extra small screens */
+    }
+}
+
+@media (max-width: 800px) {
+    .recipe-card {
+        width: calc(65% - 20px); /* Show one card per row on small screens */
+    }
+
+    .recipe-title {
+        font-size: 20px; /* Further decrease font size for extra small screens */
+    }
+
+    .recipe-description {
+        font-size: 16px; /* Further decrease font size for extra small screens */
+    }
+}
+@media (max-width: 600px) {
+    .recipe-card {
+        width: calc(100% - 20px); /* Show one card per row on small screens */
+    }
+
+    .recipe-title {
+        font-size: 20px; /* Further decrease font size for extra small screens */
+    }
+
+    .recipe-description {
+        font-size: 16px; /* Further decrease font size for extra small screens */
+    }
+}
+
+.recipe-image {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    height: 250px;
+    object-fit: cover;
+    overflow: hidden;
+    border: 5px solid black;
+}
+
+.recipe-link {
+    font-weight: bold;
+    transition: .2s;
+}
+
+.recipe-link:hover {
+    background-color: #3498db;
+    color: rgb(255, 255, 255);
+    padding: 5px;
+}
+
+/* Footer */
+footer {
+    padding-top: 18px;
+    background-color: #1e3a42;
+    /* Dark blue for the footer */
+    color: #fff;
+    text-align: center;
+    height: 50px;
+    width: 100%;
+}
+
+.gotopbtn {
+    position: fixed;
+    width: 35px;
+    height: 35px;
+    background: #ffffff;
+    bottom: 20px;
+    right: 20px;
+    text-decoration: none;
+    text-align: center;
+    transition: .5s;
+    border-radius: 50px;
+    line-height: 37px;
+    color: black;
+}
+.gotopbtn:hover{
+    background-color: black;
+    color: #ffffff;
+    cursor: pointer;
+    border-radius: 50px;
+}
+
+.back-btn {
+    top: 20px;
+    background-color: #ffffff;
+    border: none;
+    padding: 8px;
+    border-radius: 5px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, box-shadow 0.3s;
+    text-decoration: none;
+    color: black;
+}
+
+.back-btn:hover {
+    background-color: #3498db;
+    color: white;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.gotopbtn {
+    position: fixed;
+    width: 35px;
+    height: 35px;
+    background: #ffffff;
+    bottom: 20px;
+    right: 20px;
+    text-decoration: none;
+    text-align: center;
+    transition: .4s;
+    border-radius: 50px;
+    line-height: 37px;
+    color: black;
+}
+.gotopbtn:hover{
+    background-color: black;
+    color: #ffffff;
+    cursor: pointer;
+    border-radius: 50px;
+    line-height: 24px;
+}

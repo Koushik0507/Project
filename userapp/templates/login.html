@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+{% load widget_tweaks %}
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=7">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,400;1,200;1,300;1,600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Recipe Finder</title>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            Recipe Finder
+        </div>
+        <nav>
+            <ul class="menu" id="menuList">
+                <li><a href="{% url 'home' %}" class="active">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="{% url 'login' %}">Recipes</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="toggle_btn">
+                <i class="fa fa-bars"></i>
+            </div>
+            <div class="dropdown_menu">
+                <li><a href="{% url 'home' %}" class="active">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="{% url 'login' %}">Recipes</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </div>
+        </nav>
+    </header>
+    <script>
+
+        const toggleBtn = document.querySelector('.toggle_btn')
+        const toggleBtnIcon = document.querySelector('.toggle_btn i')
+        const dropDownMenu = document.querySelector('.dropdown_menu')
+
+        toggleBtn.onclick = function () {
+            dropDownMenu.classList.toggle('open')
+            const isOpen = dropDownMenu.classList.contains('open')
+
+            toggleBtnIcon.classList = isOpen
+                ? 'fa fa-xmark'
+                : 'fa fa-bars'
+        }
+
+    </script>
+    <script src="https://kit.fontawesome.com/d9e3b5ce65.js" crossorigin="anonymous"></script>
+    <div id="contact" class="contact-form" style=background-image:url("{% static 'images/bg.png' %}");
+        background-position: center; background-size: cover;>
+        <h3>Register Here</h3>
+        <br> <br>
+        <form method="POST" class="form">
+            {% csrf_token %}
+            <div class="details">
+                {{form.as_p}}
+                <br>
+                <button type="submit" class="contact-form-btn"> Get Started </button>
+            </div>
+        </form>
+    </div>
+    <a class="gotopbtn" href="#"> <i class="fas fa-arrow-up"></i></a>
+    </div>
+    <footer>
+        CopyRight @Recipe-Finder; Design By Katakam Koushik.
+    </footer>
+</body>
+</html>

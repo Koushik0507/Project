@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/food.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Recipe Finder</title>
+</head>
+
+<body>
+    <header>
+        <div class="logo">Recipe Finder</div>
+        <nav>
+            <ul class="menu" id="menuList">
+                <li><a href="{% url 'recipes' %}">Recipes</a></li>
+                <li><a href="{% url 'veg-recipes' %}" class="active">Veg Recipes</a></li>
+                <li><a href="{% url 'home' %}">Log-Out</a></li>
+            </ul>
+            <div class="toggle_btn">
+                <i class="fa fa-bars"></i>
+            </div>
+            <div class="dropdown_menu">
+                <li><a href="{% url 'recipes' %}">Recipes</a></li>
+                <li><a href="{% url 'veg-recipes' %}" class="active">Veg Recipes</a></li>
+                <li><a href="{% url 'home' %}">Log-Out</a></li>
+            </div>
+        </nav>
+    </header>
+
+    <script>
+        const toggleBtn = document.querySelector('.toggle_btn');
+        const toggleBtnIcon = document.querySelector('.toggle_btn i');
+        const dropDownMenu = document.querySelector('.dropdown_menu');
+
+        toggleBtn.onclick = function () {
+            dropDownMenu.classList.toggle('open');
+            const isOpen = dropDownMenu.classList.contains('open');
+            toggleBtnIcon.classList = isOpen ? 'fa fa-xmark' : 'fa fa-bars';
+        };
+    </script>
+
+    <div class="recipe">
+        <div class="recipe-img">
+            <img src="{% static 'images/phulka.jpg' %}">
+        </div>
+        <div class="recipe-information">
+            <h1>Phulka</h1>
+            <p class="description">Phulka is a type of Indian flatbread made from whole wheat flour, often served with
+                curries, vegetables, or lentils. Unlike other flatbreads.</p>
+
+            <div class="recipe-step-1">
+                <h2>Ingredients</h2>
+                <ul class="ingredients">
+                    <li>1 cup whole wheat flour (atta)</li>
+                    <li>Water for kneading dough</li>
+                    <li>Flour for dusting</li>
+                </ul>
+            </div>
+
+            <hr>
+
+            <div class="recipe-step-2">
+                <h2>Instructions</h2>
+                <div class="instructions">
+                    <div class="item">
+                        <div class="num">1.</div>
+                        <p>In a mixing bowl, add whole wheat flour.</p>
+                    </div>
+                    <div class="item">
+                        <div class="num">2.</div>
+                        <p>Gradually add water and knead into a smooth dough. The dough should be soft but not sticky.
+                        </p>
+                    </div>
+                    <div class="item">
+                        <div class="num">3.</div>
+                        <p>Divide the dough into small lemon-sized balls.</p>
+                    </div>
+                    <div class="item">
+                        <div class="num">4.</div>
+                        <p>Take one dough ball and roll it into a small circle, about 6-7 inches in diameter, using a
+                            rolling pin. Dust with flour as needed to prevent sticking.</p>
+                    </div>
+                    <div class="item">
+                        <div class="num">5.</div>
+                        <p>Heat a tawa (griddle) over medium-high heat.</p>
+                    </div>
+                    <div class="item">
+                        <div class="num">6.</div>
+                        <p>Place the rolled dough circle on the hot tawa and cook for about 20-30 seconds until you see
+                            bubbles forming on the surface.</p>
+                    </div>
+                    <div class="item">
+                        <div class="num">7.</div>
+                        <p>Flip the phulka with a pair of tongs and cook the other side for about 30-40 seconds until it
+                            starts to puff up.</p>
+                    </div>
+                    <div class="item">
+                        <div class="num">8.</div>
+                        <p>Now, hold the phulka with a pair of tongs and directly place it on the open flame. It will
+                            puff up completely within a few seconds.</p>
+                    </div>
+                    <div class="item">
+                        <div class="num">9.</div>
+                        <p>Remove the phulka from the flame and place it in a clean cloth or a covered container to keep
+                            it soft and warm.</p>
+                    </div>
+                    <div class="item">
+                        <div class="num">10.</div>
+                        <p>Repeat the process with the remaining dough balls.</p>
+                    </div>
+                    <div class="item">
+                        <div class="num">11.</div>
+                        <p>Serve hot phulkas with your favorite curry or vegetable dish. Enjoy your homemade soft and
+                            fluffy phulkas!</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="feature">
+                <p>Want to feature your own recipe? <a href="https://forms.gle/3e3RaBDGumVrKVc56" target=”_blank”>Send us your recipe now!</a></p>
+            </div>
+        </div>
+    </div>
+    <a class="gotopbtn" href="#"> <i class="fas fa-arrow-up"></i></a>
+    <footer>
+        &copy; Recipe Finder. Designed by Katakam Koushik.
+    </footer>
+
+</body>
+
+</html>
